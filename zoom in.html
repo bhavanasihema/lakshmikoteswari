@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counter and Zoom App</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 50px;
+    }
+    #counterDisplay {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    #zoomText {
+      font-size: 24px;
+      margin: 30px;
+      transition: transform 0.3s ease;
+    }
+    button {
+      font-size: 18px;
+      margin: 10px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🧮 Counter</h2>
+  <div id="counterDisplay">0</div>
+  <button id="incrementBtn">+</button>
+  <button id="decrementBtn">-</button>
+  <button id="resetCounterBtn">Reset</button>
+
+  <h2>🔍 Zoom In / Out</h2>
+  <div id="zoomText">Zoom Me!</div>
+  <button id="zoomInBtn">Zoom In</button>
+  <button id="zoomOutBtn">Zoom Out</button>
+  <button id="resetZoomBtn">Reset Zoom</button>
+
+  <script>
+    // Counter Logic
+    let counter = 0;
+    const counterDisplay = document.getElementById('counterDisplay');
+
+    document.getElementById('incrementBtn').onclick = () => {
+      counter++;
+      counterDisplay.textContent = counter;
+    };
+
+    document.getElementById('decrementBtn').onclick = () => {
+      counter--;
+      counterDisplay.textContent = counter;
+    };
+
+    document.getElementById('resetCounterBtn').onclick = () => {
+      counter = 0;
+      counterDisplay.textContent = counter;
+    };
+
+    // Zoom Logic
+    let scale = 1;
+    const zoomText = document.getElementById('zoomText');
+
+    document.getElementById('zoomInBtn').onclick = () => {
+      scale += 0.1;
+      zoomText.style.transform = `scale(${scale})`;
+    };
+
+    document.getElementById('zoomOutBtn').onclick = () => {
+      scale = Math.max(0.1, scale - 0.1);
+      zoomText.style.transform = `scale(${scale})`;
+    };
+
+    document.getElementById('resetZoomBtn').onclick = () => {
+      scale = 1;
+      zoomText.style.transform = `scale(1)`;
+    };
+  </script>
+
+</body>
+</html>-
